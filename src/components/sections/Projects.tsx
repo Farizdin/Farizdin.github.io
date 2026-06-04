@@ -76,25 +76,12 @@ export default function Projects() {
               }`}
             >
               <div className={`relative overflow-hidden bg-slate-100 ${index === 0 ? "min-h-[22rem]" : "h-64"}`}>
-                {project.demo ? (
-                  <div className="absolute inset-0 z-0 bg-slate-50 pointer-events-none">
-                    <iframe
-                      src={project.demo}
-                      title={project.title}
-                      className="absolute left-0 top-0 h-[200%] w-[200%] origin-top-left scale-50 border-none transition-transform duration-700 ease-out group-hover:scale-[0.52]"
-                      loading="lazy"
-                      tabIndex={-1}
-                      aria-hidden="true"
-                    />
-                  </div>
-                ) : (
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                )}
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/38 via-slate-950/8 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-45" />
                 <div className="absolute inset-x-4 bottom-4 translate-y-3 rounded-xl border border-white/50 bg-white/82 p-4 opacity-0 shadow-lg backdrop-blur-xl transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                   <p className="flex items-center gap-2 text-sm font-bold text-slate-950">
