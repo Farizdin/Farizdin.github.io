@@ -22,7 +22,7 @@ const projects = [
     title: "Web-Based System Development Projects",
     eyebrow: "Academic systems",
     description: "CRUD-based academic web systems with authentication, form handling, database storage, updates, deletion, and search functions.",
-    image: "/finance.png",
+    image: "/login-demo.png",
     tags: ["PHP", "Laravel", "MySQL", "JavaScript"],
     outcome: "Delivered full-stack web flows with persistent data.",
     github: "",
