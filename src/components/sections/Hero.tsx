@@ -104,11 +104,7 @@ export default function Hero() {
                 className="object-cover object-top"
                 priority
               />
-              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950/58 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-100">Available Aug-Dec 2026</p>
-                <h2 className="mt-1 text-2xl font-bold tracking-tight">Software Development Internship</h2>
-              </div>
+
             </div>
 
             <div className="grid grid-cols-2 gap-3 pt-4">
