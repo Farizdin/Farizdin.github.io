@@ -13,9 +13,11 @@ const projects = [
     description: "CRM system for Nawikh Edu Hub to organize customer records, inquiries, follow-ups, and service data into a clearer operational workflow.",
     image: "/student.png",
     tags: ["Web App", "CRM", "Database", "Workflow"],
+    metrics: ["Client workflow", "Customer records", "Follow-up tracking"],
     outcome: "Built for structured customer and service management.",
     github: "",
     demo: "https://nawikh-eduhub.vercel.app/",
+    demoLabel: "Live demo",
     useIframe: true,
   },
   {
@@ -24,20 +26,24 @@ const projects = [
     description: "CRUD-based academic web systems with authentication, form handling, database storage, updates, deletion, and search functions.",
     image: "/login-demo.png",
     tags: ["PHP", "Laravel", "MySQL", "JavaScript"],
+    metrics: ["Authentication", "CRUD flows", "Search functions"],
     outcome: "Delivered full-stack web flows with persistent data.",
     github: "",
     demo: "http://lrgs.ftsm.ukm.my/users/a208965/myTrial/login.php",
+    demoLabel: "Live demo",
     useIframe: false,
   },
   {
     title: "Amazon Wireless Earphones Data Engineering",
     eyebrow: "Python data project",
-    description: "Scraping and cleaning pipeline that collected product prices, brands, ratings, reviews, delivery details, and URLs, then analyzed discount trends.",
+    description: "Built a scraping and cleaning pipeline for Amazon wireless earphones data, collecting product names, prices, original prices, brands, ratings, reviews, delivery details, and product URLs before preparing the dataset for analysis.",
     image: "/network.png",
-    tags: ["Python", "BeautifulSoup", "Pandas", "Seaborn"],
-    outcome: "Converted raw product listings into analysis-ready insights.",
+    tags: ["Python", "Requests", "BeautifulSoup", "Pandas", "Matplotlib", "Seaborn"],
+    metrics: ["7 pages scraped", "112 raw products", "53 cleaned records"],
+    outcome: "Cleaned raw Amazon listings into an analysis-ready CSV with before-and-after data quality visualization.",
     github: "",
-    demo: "",
+    demo: "/amazon-wireless-earphones-data-engineering.ipynb",
+    demoLabel: "View notebook",
     useIframe: false,
   },
 ];
@@ -123,22 +129,11 @@ export default function Projects() {
                     project.title
                   )}
                 </h3>
-                <p className="mt-4 flex-grow text-sm leading-7 text-slate-600 sm:text-base">
+                <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
                   {project.description}
                 </p>
 
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-600"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-3">
+                <div className="mt-6 flex flex-wrap gap-3">
                   {project.github ? (
                     <a
                       href={project.github}
@@ -153,16 +148,38 @@ export default function Projects() {
                       href={project.demo}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-950 transition-colors hover:border-blue-200 hover:bg-blue-50"
+                      className="inline-flex items-center gap-2 rounded-xl border border-emerald-200 bg-white px-4 py-3 text-sm font-bold text-emerald-950 shadow-sm transition-colors hover:border-emerald-300 hover:bg-emerald-50"
                     >
                       <ExternalLink size={16} />
-                      Live demo
+                      {project.demoLabel}
                     </a>
                   ) : (
                     <span className="inline-flex items-center rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-bold text-slate-400">
                       Case details on request
                     </span>
                   )}
+                </div>
+
+                <div className="mt-5 grid gap-2 sm:grid-cols-3">
+                  {project.metrics.map((metric) => (
+                    <div
+                      key={metric}
+                      className="rounded-xl border border-emerald-100 bg-emerald-50/70 px-3 py-2 text-xs font-bold text-emerald-800"
+                    >
+                      {metric}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-600"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.article>

@@ -66,10 +66,9 @@ export default function Sidebar() {
         <button
           type="button"
           onClick={() => scrollToSection("home")}
-          className="shrink-0 rounded-xl px-2 py-1.5 text-left transition-colors hover:bg-white/65"
+          className="shrink-0 rounded-xl px-2.5 py-2 text-left transition-colors hover:bg-white/65"
         >
           <span className="block text-sm font-bold tracking-tight text-slate-950">Fariz Izuddin</span>
-          <span className="block text-xs font-semibold text-blue-600">Frontend + Systems</span>
         </button>
 
         <div className="flex min-w-0 flex-1 justify-end overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

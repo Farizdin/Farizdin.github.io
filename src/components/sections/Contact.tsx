@@ -2,12 +2,15 @@
 
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { fadeUp, premiumEase, staggerContainer, viewport } from "@/lib/motion";
 
 const contactItems = [
   { icon: Mail, label: "Email", value: "farizizuddinazhar@gmail.com", href: "mailto:farizizuddinazhar@gmail.com" },
   { icon: Phone, label: "Phone", value: "+6019 7751814", href: "tel:+60197751814" },
+  { icon: FaLinkedin, label: "LinkedIn", value: "farizizuddin", href: "https://www.linkedin.com/in/farizizuddin" },
+  { icon: FaGithub, label: "GitHub", value: "Farizdin", href: "https://github.com/Farizdin" },
   { icon: MapPin, label: "Location", value: "Bangi, Selangor", href: "" },
 ];
 
@@ -20,7 +23,7 @@ export default function Contact() {
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
-          className="premium-card overflow-hidden rounded-2xl p-6 text-center sm:p-10 lg:p-14"
+          className="contact-panel premium-card overflow-hidden rounded-2xl p-6 text-center sm:p-10 lg:p-14"
         >
           <motion.div variants={fadeUp} className="section-kicker mx-auto mb-5 w-max">
             Contact
@@ -54,19 +57,33 @@ export default function Contact() {
               >
                 <Phone size={20} />
               </motion.a>
-              <motion.span
+              <motion.a
                 whileHover={{ y: -4 }}
-                aria-label="LinkedIn profile not linked yet"
-                className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-white text-blue-500 opacity-70 shadow-sm"
-                role="img"
+                whileTap={{ scale: 0.96 }}
+                href="https://www.linkedin.com/in/farizizuddin"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open Fariz LinkedIn profile"
+                className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-white text-blue-600 shadow-sm transition-colors hover:border-blue-200 hover:bg-blue-50"
               >
                 <FaLinkedin size={21} />
-              </motion.span>
+              </motion.a>
+              <motion.a
+                whileHover={{ y: -4 }}
+                whileTap={{ scale: 0.96 }}
+                href="https://github.com/Farizdin"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open Fariz GitHub profile"
+                className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-800 shadow-sm transition-colors hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
+              >
+                <FaGithub size={21} />
+              </motion.a>
             </div>
           </motion.div>
         </motion.div>
 
-        <div className="mt-5 grid gap-4 sm:grid-cols-3">
+        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {contactItems.map((item, index) => {
             const Icon = item.icon;
             const content = (

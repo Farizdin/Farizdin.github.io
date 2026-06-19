@@ -5,7 +5,7 @@ import { ArrowRight, ChevronDown, Download, MapPin, Sparkles } from "lucide-reac
 import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp, premiumEase, staggerContainer } from "@/lib/motion";
 
-const focusAreas = ["Frontend", "CRM systems", "Data pipelines", "IT support"];
+const quickFacts = ["Available Aug-Dec 2026", "Bangi, Selangor", "CGPA 3.71"];
 
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion();
@@ -32,26 +32,26 @@ export default function Hero() {
             className="max-w-4xl text-5xl font-semibold leading-[0.98] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl"
           >
             Fariz Izuddin
-            <span className="text-gradient block pt-2">Frontend-minded computer science student.</span>
+            <span className="hero-title-gradient block pt-2">Computer Science student seeking software, data, and IT internship.</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="mt-7 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl"
+            className="mt-7 max-w-2xl text-lg leading-8 text-emerald-900/72 sm:text-xl"
           >
-            I build practical web systems, data workflows, and support-ready digital tools with a focus on clarity, reliability, and polished user experience.
+            I build practical web systems, data workflows, and support-ready digital tools with a focus on clear interfaces, reliable operations, and real user needs.
           </motion.p>
 
           <motion.div
             variants={fadeUp}
             className="mt-8 flex flex-wrap items-center gap-3"
           >
-            {focusAreas.map((area) => (
+            {quickFacts.map((fact) => (
               <span
-                key={area}
-                className="rounded-full border border-blue-100 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm"
+                key={fact}
+                className="rounded-full border border-emerald-200/90 bg-white/72 px-4 py-2 text-sm font-semibold text-emerald-950 shadow-[0_12px_34px_rgba(5,150,105,0.12)] backdrop-blur-xl transition-colors hover:border-emerald-300 hover:bg-emerald-50"
               >
-                {area}
+                {fact}
               </span>
             ))}
           </motion.div>
@@ -65,7 +65,7 @@ export default function Hero() {
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.28, ease: premiumEase }}
-              className="premium-button inline-flex items-center justify-center gap-2 rounded-xl bg-slate-950 px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-blue-700"
+              className="premium-button inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-emerald-700"
               onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
             >
               View projects
@@ -80,7 +80,7 @@ export default function Hero() {
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white/82 px-6 py-4 text-sm font-bold text-slate-950 shadow-sm transition-colors hover:border-blue-200 hover:bg-blue-50"
             >
               <Download size={17} />
-              Resume
+              Download resume
             </motion.a>
           </motion.div>
         </motion.div>

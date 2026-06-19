@@ -1,29 +1,55 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
+import type { IconType } from "react-icons";
+import {
+  SiDocker,
+  SiGitlab,
+  SiJavascript,
+  SiLaravel,
+  SiMysql,
+  SiNextdotjs,
+  SiPandas,
+  SiPhp,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiSupabase,
+  SiTypescript,
+} from "react-icons/si";
+import { FaJava, FaMicrosoft, FaNetworkWired, FaServer, FaWindows } from "react-icons/fa6";
+import { VscVscode } from "react-icons/vsc";
 import { chipReveal, fadeUp, staggerContainer, viewport } from "@/lib/motion";
 
-const skills = [
-  { name: "Python", color: "bg-blue-50 text-blue-700 border-blue-100" },
-  { name: "Java", color: "bg-orange-50 text-orange-700 border-orange-100" },
-  { name: "JavaScript", color: "bg-yellow-50 text-yellow-700 border-yellow-100" },
-  { name: "TypeScript", color: "bg-sky-50 text-sky-700 border-sky-100" },
-  { name: "PHP", color: "bg-indigo-50 text-indigo-700 border-indigo-100" },
-  { name: "React", color: "bg-cyan-50 text-cyan-700 border-cyan-100" },
-  { name: "Next.js", color: "bg-slate-50 text-slate-700 border-slate-200" },
-  { name: "Laravel", color: "bg-red-50 text-red-700 border-red-100" },
-  { name: "MySQL", color: "bg-blue-50 text-blue-800 border-blue-100" },
-  { name: "PostgreSQL", color: "bg-cyan-50 text-cyan-700 border-cyan-100" },
-  { name: "Supabase", color: "bg-emerald-50 text-emerald-700 border-emerald-100" },
-  { name: "Pandas", color: "bg-purple-50 text-purple-700 border-purple-100" },
-  { name: "BeautifulSoup", color: "bg-lime-50 text-lime-700 border-lime-100" },
-  { name: "Microsoft Dynamics ERP", color: "bg-slate-50 text-slate-700 border-slate-200" },
-  { name: "Active Directory", color: "bg-zinc-50 text-zinc-800 border-zinc-200" },
-  { name: "Windows Server", color: "bg-slate-50 text-slate-700 border-slate-200" },
-  { name: "Networking", color: "bg-green-50 text-green-700 border-green-100" },
-  { name: "Docker", color: "bg-blue-50 text-blue-700 border-blue-100" },
-  { name: "GitLab", color: "bg-orange-50 text-orange-700 border-orange-100" },
-  { name: "VS Code", color: "bg-sky-50 text-sky-700 border-sky-100" },
+type Skill = {
+  name: string;
+  icon: IconType;
+  color: string;
+  glow: string;
+};
+
+const skills: Skill[] = [
+  { name: "Python", icon: SiPython, color: "#3776ab", glow: "rgba(55, 118, 171, 0.34)" },
+  { name: "Java", icon: FaJava, color: "#f89820", glow: "rgba(248, 152, 32, 0.34)" },
+  { name: "JavaScript", icon: SiJavascript, color: "#f7df1e", glow: "rgba(247, 223, 30, 0.3)" },
+  { name: "TypeScript", icon: SiTypescript, color: "#3178c6", glow: "rgba(49, 120, 198, 0.34)" },
+  { name: "PHP", icon: SiPhp, color: "#777bb4", glow: "rgba(119, 123, 180, 0.34)" },
+  { name: "React", icon: SiReact, color: "#61dafb", glow: "rgba(97, 218, 251, 0.3)" },
+  { name: "Next.js", icon: SiNextdotjs, color: "#ffffff", glow: "rgba(255, 255, 255, 0.22)" },
+  { name: "Laravel", icon: SiLaravel, color: "#ff2d20", glow: "rgba(255, 45, 32, 0.34)" },
+  { name: "MySQL", icon: SiMysql, color: "#4479a1", glow: "rgba(68, 121, 161, 0.34)" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169e1", glow: "rgba(65, 105, 225, 0.34)" },
+  { name: "Supabase", icon: SiSupabase, color: "#3ecf8e", glow: "rgba(62, 207, 142, 0.32)" },
+  { name: "Pandas", icon: SiPandas, color: "#e70488", glow: "rgba(231, 4, 136, 0.32)" },
+  { name: "BeautifulSoup", icon: FaServer, color: "#8bc34a", glow: "rgba(139, 195, 74, 0.3)" },
+  { name: "Microsoft Dynamics ERP", icon: FaMicrosoft, color: "#00a4ef", glow: "rgba(0, 164, 239, 0.34)" },
+  { name: "Active Directory", icon: FaMicrosoft, color: "#7fba00", glow: "rgba(127, 186, 0, 0.3)" },
+  { name: "Windows Server", icon: FaWindows, color: "#00adef", glow: "rgba(0, 173, 239, 0.32)" },
+  { name: "Networking", icon: FaNetworkWired, color: "#22c55e", glow: "rgba(34, 197, 94, 0.32)" },
+  { name: "Docker", icon: SiDocker, color: "#2496ed", glow: "rgba(36, 150, 237, 0.34)" },
+  { name: "GitLab", icon: SiGitlab, color: "#fc6d26", glow: "rgba(252, 109, 38, 0.34)" },
+  { name: "VS Code", icon: VscVscode, color: "#007acc", glow: "rgba(0, 122, 204, 0.34)" },
 ];
 
 export default function Skills() {
@@ -56,17 +82,29 @@ export default function Skills() {
           viewport={{ once: true, amount: 0.18 }}
           className="mx-auto flex max-w-5xl flex-wrap justify-center gap-4 md:gap-5"
         >
-          {skills.map((skill) => (
-            <motion.div
-              key={skill.name}
-              variants={chipReveal}
-              whileHover={{ y: -5, scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              className={`premium-card cursor-default rounded-2xl border px-6 py-4 shadow-sm transition-shadow duration-300 hover:shadow-[0_18px_44px_rgba(15,23,42,0.1)] ${skill.color}`}
-            >
-              <span className="text-base font-bold sm:text-lg">{skill.name}</span>
-            </motion.div>
-          ))}
+          {skills.map((skill) => {
+            const Icon = skill.icon;
+            const style = {
+              "--skill-color": skill.color,
+              "--skill-glow": skill.glow,
+            } as CSSProperties;
+
+            return (
+              <motion.div
+                key={skill.name}
+                variants={chipReveal}
+                whileHover={{ y: -5, scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                style={style}
+                className="skill-chip cursor-default rounded-2xl border px-5 py-4 shadow-sm transition-shadow duration-300"
+              >
+                <span className="skill-chip-icon">
+                  <Icon aria-hidden="true" />
+                </span>
+                <span className="text-base font-bold sm:text-lg">{skill.name}</span>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
