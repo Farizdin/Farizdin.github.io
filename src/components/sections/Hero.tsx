@@ -31,15 +31,14 @@ export default function Hero() {
             variants={fadeUp}
             className="max-w-4xl text-5xl font-semibold leading-[0.98] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl"
           >
-            Fariz Izuddin
-            <span className="hero-title-gradient block pt-2">Computer Science student seeking software, data, and IT internship.</span>
+            Hi, I&apos;m Fariz Izuddin.
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="mt-7 max-w-2xl text-lg leading-8 text-emerald-900/72 sm:text-xl"
+            className="mt-7 max-w-xl text-lg leading-8 text-emerald-900/72 sm:text-xl"
           >
-            I build practical web systems, data workflows, and support-ready digital tools with a focus on clear interfaces, reliable operations, and real user needs.
+            Final year Computer Science student at UKM, focused on web development, data, and networking.
           </motion.p>
 
           <motion.div
